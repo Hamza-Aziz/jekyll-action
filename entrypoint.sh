@@ -67,7 +67,9 @@ if [ -n "${INPUT_JEKYLL_ENV}" ]; then
 else
   echo "::debug::Environment default in use - production"
   INPUT_JEKYLL_ENV="production"
-fi  
+fi
+# fix git error about ownership
+git config --global --add safe.directory /github/workspace
 
 # Which branch will be used for publishing? 
 # It can be provided, or dectected through API or inferred from the repo name, which is a bit of a legacy behavior.
